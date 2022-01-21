@@ -1,0 +1,477 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  width: 100%;
+  min-height: 100vh;
+}
+
+*{
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+@mixin margin-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+$light__color: #BCC1C3;
+$dark__color: #23272F;
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.dark{
+  /*navbar*/
+  background-color: $dark__color;
+  .navbar{
+    background-color: $dark__color;
+    & a,i{
+      color: $light__color!important;
+    }
+    .nav-search-button{
+      border: 1px solid $light__color;
+      &:hover{
+        background-color: $light__color;
+        .fa-search{
+          color: $dark__color !important;
+        }
+      }
+    }
+    .navbar-toggler{
+      background-color: $light__color!important;
+    }
+  }
+  /*navbar end*/
+  /*searchbar*/
+  .search-container{
+    background-color: $dark__color;
+    & label, .profile-not-found{
+      color: $light__color;
+    }
+    input  {
+      background: $dark__color;
+      color: #fff;
+    }
+   .search-bar {
+      border: 1px solid $light__color!important;
+      & > a{
+        background-color: $light__color;
+      }
+      i {
+        color: $dark__color;
+      }
+      & > a:hover{
+        background-color: $dark__color;
+        i {
+          color: $light__color;
+        }
+      }
+    }
+  }
+  /*searchbar end*/
+  /*profile*/
+  .profile{
+    background-color: $dark__color;
+    color: $light__color;
+  }
+  .fa-user-cog{
+    color: $light__color;
+  }
+  /*searchbar end*/
+  /*auth*/
+  .auth{
+    color: $light__color;
+    input {
+      color: #fff;
+      background-color: $dark__color;
+    }
+    button {
+      border: 1px solid $light__color;
+      color: $light__color;
+      &:hover{
+        background-color: $light__color;
+        color: #23272F;
+      }
+    }
+  }
+  /*auth end*/
+  .scroll-to-top{
+    background-color: $light__color;
+    transition: box-shadow 0.8s;
+    i{
+      color: $dark__color;
+      transition: transform 0.8s;
+    }
+
+    &:hover{
+      box-shadow: 0 0 8px 2px $light__color;
+
+      i{
+        transform: scale(1.2);
+      }
+    }
+  }
+  .not-found{
+    color: $light__color!important;
+  }
+}
+
+
+/*Navbar*/
+@media screen and (min-width: 768px){
+  .navbar{
+
+    .navbar-link{
+      margin-right: 15px;
+    }
+  }
+}
+@media screen and (max-width: 768px){
+  .navbar{
+    .nav-search-button {
+      margin-right: 10px;
+      width: 100%;
+    }
+    .navbar-link {
+      text-align: center;
+      width: 100%;
+      margin-top: 5px;
+    }
+  }
+}
+/*Navbar End*/
+
+/* Signup & Login  Page Start */
+.auth{
+  height: 64vh;
+}
+.error-message {
+  color: red;
+  font-size: .7rem;
+}
+.alert-danger{
+  font-size: 12px;
+}
+
+.fa-eye, .fa-eye-slash{
+  position: relative;
+  float: right;
+  margin-right: 8px;
+  margin-top: -26px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px){
+  .auth{
+    width: 80%;
+    margin: auto;
+    margin-top: 80px;
+  }
+}
+@media screen and (min-width: 600px){
+  .auth{
+    width: 50%;
+    margin: auto;
+    margin-top: 80px;
+  }
+}
+@media screen and (min-width: 1100px){
+  .auth {
+    width: 23rem;
+    @include margin-auto;
+    margin-top: 9rem;
+  }
+}
+/* Signup & Login  Page End */
+
+
+/*Home Page Slider Start*/
+.carousel-caption {
+  width: 100%;
+  height: 100%;
+  & > h3 {
+    font-size: 2.2rem;
+    text-align: start;
+    text-shadow:  rgba(0, 0, 0, 0.85) 0px 5px 15px;
+  }
+  & > h3:first-child {
+    margin-top: 5%;
+  }
+  & > h3:last-child {
+    margin-left: 8rem;
+    margin-top: 4%;
+  }
+}
+
+.home-slider img {
+  height: calc(100vh - 56px);
+  object-fit: cover;
+}
+
+@media screen and (max-width: 480px) {
+  .home-slider {
+    img{
+      height: calc(100vh - 250px);
+    }
+    .carousel-caption {
+      h3 {
+        margin-top: 3rem;
+        font-size: 1rem;
+      }
+      & > h3:last-child {
+        margin-left: 3rem;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .home-slider {
+    img{
+      height: calc(100vh - 220px);
+    }
+    .carousel-caption {
+      h3 {
+        margin-top: 3rem;
+        font-size: 1.3rem;
+      }
+      & > h3:last-child {
+        margin-left: 3rem;
+      }
+    }
+  }
+}
+/*Home Page Slider Start End*/
+
+/*Profile*/
+$size: 8rem;
+.profile-container{
+  padding-bottom: 10rem;
+}
+.profile{
+  min-height: 76vh;
+}
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -webkit-border-radius: 150px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 150px;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  float: left;
+  background-size: cover;
+  background-position: center center;
+}
+
+.fa-user-circle{
+  opacity: .7;
+  font-size: 145px;
+}
+.profile-images{
+  height: 235px;
+  max-width: 96%;
+  cursor: pointer;
+}
+
+.add-image-button{
+  border-radius: 50%;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+ 
+}
+.fa-plus-circle{
+  font-size: 3rem;
+  color: $light__color;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: color 1s ;
+  &:hover{
+    color: #bcc8;
+  }
+}
+
+.zoom-image{
+  max-height: 30rem;
+  max-width: 80%;
+
+}
+.previous-image, .next-image{
+  cursor: pointer;
+  font-size: 2rem;
+}
+@media screen and (max-width: 600px) {
+  .fa-user-cog{
+    font-size: .8rem;
+  }
+  .previous-image, .next-image{
+    font-size: 1.2rem;
+  }
+  .profile-images{
+    max-height: 200px;
+  }
+}
+/*Profile End*/
+
+.navbar {
+  border-bottom: 1px solid rgba(177, 173, 173, 0.7);
+  background-color: rgb(248,249,250);
+}
+
+/* Search Bar */
+.search-container{
+  padding-top: 3rem;
+  height: 76vh;
+}
+.search-bar{
+  width: 40%;
+  border-radius: 8px;
+}
+.search-button{
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  transition: all 300ms ease-in-out;
+  background-color: #0d6efd;
+  i{
+    color: #fff;
+  }
+}
+.search-button:hover{
+  transition: all 300ms ease-in-out;
+  background-color: #fff;
+  i{
+    color: #0d6efd;
+  }
+}
+
+.search-bar>input:focus{
+  outline: none;
+}
+
+.profile-not-found {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+@media screen and (max-width: 600px) {
+  .search-bar{
+    width: 88%;
+  }
+}
+@media screen and (max-width: 992px){
+  .search-bar{
+    width: 68%;
+  }
+}
+/* Search Bar End*/
+
+/*Footer*/
+.footer{
+  width: 100%;
+  position: relative;
+  clear: both;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  padding: 3rem 6rem;
+  display: flex;
+  .footer-logo {
+    position: absolute;
+    margin-left: 5rem;
+    display: flex;
+    a{
+      color: #fff;
+      i{
+        font-size: 1.6rem;
+      }
+    }
+    a:hover{
+      color: rgb(123, 115, 115);
+    }
+    span{
+      margin-left: 1rem;
+    }
+  }
+  .footer-link{
+    display: flex;
+    @include margin-auto;
+    justify-content: center;
+    flex-wrap: wrap;
+
+  }
+  .footer-link >span {
+    margin-left: 12px;
+    margin-right: 12px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width:1256px) {
+  .footer{
+    display: flex;
+    flex-direction: column-reverse;
+    .footer-logo{
+      position: static;
+      margin-top: 3rem;
+      justify-content: center;
+      margin-left: 0;
+    }
+  }
+}
+
+@media screen and (max-width:600px){
+  .footer{
+    .footer-link{
+      gap: 1rem;
+    }
+  }
+}
+
+.not-found{
+  height: 76vh;
+  text-align: center;
+  padding-top: 4rem;
+}
+
+.scroll-to-top{
+  position: fixed;
+  background-color: #41464b;
+  bottom: 10%;
+  right: 5%;
+  outline: none;
+  border: none;
+  padding: 7px 8px 4px 8px;
+  border-radius: 8px;
+  transition: box-shadow 0.8s;
+  i{
+    font-size: 30px;
+    color: #fff;
+    transition: transform 0.8s;
+  }
+  &:hover{
+    box-shadow: 0 0 8px 2px $dark__color;
+
+    i{
+      transform: scale(1.2);
+    }
+  }
+}
+
+// search profile return to previous page icon
+.search-back-page{
+  position: absolute;
+  font-size: 2rem;
+  top: 15%;
+  left: 6%;
+  cursor: pointer;
+}
