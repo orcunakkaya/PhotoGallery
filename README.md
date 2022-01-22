@@ -1,1 +1,1 @@
-# Photo Gallery With React
+# MERN Stack Photo Gallery App
